@@ -1,4 +1,4 @@
-package response
+package render
 
 import (
 	"net/http"
@@ -11,7 +11,7 @@ type Render interface {
 
 // 这里面起到了接口规范的作用
 var (
-	// _ Render = render.JSON{}
+	_ Render = JSON{}
 )
 
 func WriteContentType(w http.ResponseWriter, value []string) {

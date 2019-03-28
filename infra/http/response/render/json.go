@@ -1,7 +1,6 @@
 package render
 
 import (
-	"easyurl/infra/http/response"
 	"encoding/json"
 	"net/http"
 )
@@ -20,11 +19,11 @@ func (r JSON) Render(w http.ResponseWriter) (err error) {
 }
 
 func (r JSON) WriteContentType(w http.ResponseWriter) {
-	response.WriteContentType(w, contentType)
+	WriteContentType(w, contentType)
 }
 
 func WriteJSON(w http.ResponseWriter, obj interface{}) error {
-	response.WriteContentType(w, contentType)
+	WriteContentType(w, contentType)
 	jsonBytes, err := json.Marshal(obj)
 	if err != nil {
 		return err
